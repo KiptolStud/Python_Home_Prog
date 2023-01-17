@@ -1,24 +1,37 @@
+# Реализуйте RLE алгоритм: реализуйте модуль сжатия и восстановления данных.
+# Входные и выходные данные хранятся в отдельных текстовых файлах.
 
-# Задайте натуральное число N. Напишите программу, которая составит список простых множителей числа N.
+with open('text_for_RLE.txt', 'w', encoding='UTF-8') as file:
+    file.write(input('Напишите текст необходимый для сжатия: '))
+with open('text_for_RLE.txt', 'r') as file:
+    my_text = file.readline()
+    text_compression = my_text.split()
 
-def check_number_simple(n: int):
-    i = 2
-    while n % i != 0 or i == n - 1:
-        i += 1
-    if i == n:
-        return n
-
-def fill_simple_list(n: int) -> list:
-    simple_list = [1]
-    for i in range(2, n+1):
-        if n % i == 0:
-            if check_number_simple(i) != None:
-                simple_list.append(check_number_simple(i))
-            else:
-                continue
-    return simple_list
+print(my_text)
 
 
-n = int(input('Введите натуральное число N: '))
-simple_list = fill_simple_list(n)
-print(simple_list)
+def rle_encode(text):
+    enconding = ''
+    prev_char = ''
+    count = 1
+    if not text:
+        return ''
+
+    for char in text:
+        if char != prev_char:
+            if prev_char:
+                enconding += str(count) + prev_char
+            count = 1
+            prev_char = char
+        else:
+            count += 1
+    else:
+        enconding += str(count) + prev_char
+        return enconding
+
+
+text_compression = rle_encode(my_text)
+
+with open('text_compression_RLE.txt', 'w', encoding='UTF-8') as file:
+    file.write(f'{text_compression}')
+print(text_compression)
