@@ -1,21 +1,13 @@
-#Напишите программу, удаляющую из текста все слова, содержащие "абв".
-#В тексте используется разделитель пробел.
+#Представлен список чисел. Необходимо вывести элементы исходного списка, значения которых больше предыдущего элемента. 
+#Use comprehension.
 
-with open('incoming_text.txt','w', encoding='UTF-8' ) as file:
-    file.write(input('Введите первоночальный текст: '))
-with open('incoming_text.txt','r') as file:
-    my_text = file.readline()
-    change_text = my_text.split()
-print()
-print(my_text)
-print()
-
-del_text = input('Введите  набор букв, который нужно удалить из слов содержащие данную последовательность :  ')
-print(del_text)
-
-result = ' '.join(filter(lambda x: del_text not in x, change_text))
-with open('format_text.txt','w', encoding='UTF-8') as file:
-    file.write(f'{result}')
-print(result)
-
-
+from random import sample
+# длина списка
+len_list = int(input("Ведите число длины списка: "))
+# рандомный список
+my_list = [i for i in sample(range(1, len_list*2), len_list)]
+print("рандомный список: ", my_list)
+# cортированный список
+sort_list = [my_list[i]
+             for i in range(1, len(my_list)) if my_list[i] > my_list[i-1]]
+print("cортированный список: ", sort_list)
