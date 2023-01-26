@@ -1,5 +1,8 @@
 import operations_rational as op
 import sys
+import datetime
+
+now = datetime.datetime.now()
 
 def x():
     firstnum = float(input('Введите первое дробное число: ').replace(',', '.'))
@@ -46,8 +49,8 @@ def mainterminal():
         res = op.res(x, y)
         file = 'results.txt'
         with open('results.txt', 'a') as data:
-            data.write(f'The result of {x} {oper} {y} = {res}\n')
-        print(f'Результат {x} {oper} {y} = {res}\n(уже запиан в текстовый файл)' )
+            data.write(str(now),f'Результат вычисления {x} {oper} {y} = {res}\n')
+        print(str(now),f'Результат {x} {oper} {y} = {res}\n(уже запиан в текстовый файл)' )
         again = input('Вы хотите производить операции с другими числами? Yes/No: ').lower()
         if again == 'yes':
             useresult = input('Вы хотите ипользовать результат последней операции? (Yes/No): ').lower()

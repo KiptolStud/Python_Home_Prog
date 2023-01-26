@@ -1,3 +1,5 @@
+import datetime
+now = datetime.datetime.now()
 def Insert_Numbers():
     # Function invite user for insert two komplex numbers and operation between it 
     print('Введите комплексное число вида: a + bi\n')
@@ -5,7 +7,7 @@ def Insert_Numbers():
     user_komplex2 = input('Введите второе комплексное число: ')
     operation = input('Выберете тип действия с числами? (+, -, *, / доступные действия)')
     with open('results.txt', 'a') as data:
-        data.write(f'({user_komplex1}){operation}({user_komplex2}) = ')
+        data.write(str(now) ,f'({user_komplex1}){operation}({user_komplex2}) = ')
     return [user_komplex1, user_komplex2, operation]
 
 def Take_Rational_Part(user_number):
