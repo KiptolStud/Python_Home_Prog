@@ -1,9 +1,9 @@
 def Insert_Numbers():
     # Function invite user for insert two komplex numbers and operation between it 
-    print('Type of complex number: a + bi\n')
-    user_komplex1 = input('Insert first complex number: ')
-    user_komplex2 = input('Insert second complex number: ')
-    operation = input('What do you want to do with that? (+, -, *, / are available only)')
+    print('Введите комплексное число вида: a + bi\n')
+    user_komplex1 = input('Введите первое комплексное число: ')
+    user_komplex2 = input('Введите второе комплексное число: ')
+    operation = input('Выберете тип действия с числами? (+, -, *, / доступные действия)')
     with open('results.txt', 'a') as data:
         data.write(f'({user_komplex1}){operation}({user_komplex2}) = ')
     return [user_komplex1, user_komplex2, operation]
@@ -140,13 +140,13 @@ def record_in_file(result):
             data.write(f'{result[0]}\n')
 
 def Repeat_Or_No():
-    '''Function for asking user to continue or no'''
-    user_choice = 'Bad answer'
+    '''Функция спрашивающая пользователя об продолжении работы'''
+    user_choice = 'Неверный ответ'
     while user_choice != 'Y' or user_choice != 'N':
-        user_choice = input('Do you want continue work with komplex numbers? (Y or N)')
+        user_choice = input('Вы хотите продолжить работу с комплексными числами? (Y or N)')
         if user_choice == 'N':
             return False
         elif user_choice == 'Y':
             return True
         else:
-            print('Illegal answer! Do you want continue work with komplex numbers? Insert Y or N')
+            print('Некоректный ответ! Вы хотите продолжить работу с комплесными числами? Введите Y or N')
