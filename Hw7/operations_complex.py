@@ -7,7 +7,7 @@ def Insert_Numbers():
     user_komplex2 = input('Введите второе комплексное число: ')
     operation = input('Выберете тип действия с числами? (+, -, *, / доступные действия)')
     with open('results.txt', 'a') as data:
-        data.write(str(now) ,f'({user_komplex1}){operation}({user_komplex2}) = ')
+        data.write(f'({user_komplex1}){operation}({user_komplex2}) = ')
     return [user_komplex1, user_komplex2, operation]
 
 def Take_Rational_Part(user_number):
